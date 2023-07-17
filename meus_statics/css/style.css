@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap');
+
+* {
+    font-family: 'Source Code Pro', monospace;
+}
+
+/* topo */
+#topo {
+    background-color: rgba(172, 0, 0, 0.747);
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 3px 3px 36px 0px black;
+    width: 100%;
+}
+
+.logo {
+    height: 60px;
+    margin: 2%;
+}
+
+/* opções do topo */
+.itens {
+    text-decoration: none;
+    font-size: 2vw;
+    margin: 2%;
+    color: #17A2C6;
+}
+
+.itens:hover {
+    color: black;
+}
+
+/* FIM topo */
+
