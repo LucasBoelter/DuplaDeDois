@@ -1,6 +1,24 @@
-{% block conteudo %}
-<h1>pagina login</h1>
+{% extends 'meus_templates/paginas/base_index.html' %}
 
+{% block conteudo %}
+<h1>pagina login.html</h1>
+
+<section>
+    <form action="{% url 'usuario_app:login' %}" method="POST">
+        {% csrf_token %}
+        {% for campo in formulario.visible_fields %}
+        <div>
+            <label form="{{ campo.id_for_label }}"><b>{{ campos.label }}</b></label>
+            {{ campo }}
+        </div>
+        {% endfor %}
+        <div>
+            <button type="submit">Login</button>
+        </div>
+</section>
+
+
+"""antes de aplicar do jeito certo para o django"""
 <section>
     <form action="" method="">
         <div>
