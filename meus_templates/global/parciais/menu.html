@@ -1,7 +1,8 @@
+{% load static %}
 <header id="topo">
-    <img class='logo' src="/img/logo.png" alt="">
-    <a class='itens' href="#">Filmes</a>
-    <a class='itens' href="#">Login</a>
-    <a class='itens' href="#">Cadastro</a>
-    <a class='itens' href="#">Administação</a>
+    <a href="{% url 'home_app:index' %}" style='margin: 1.5% 2% 1.2% 1.2%;'><img class='logo' src="{% static 'global/img/logo.png' %}" alt=""></a>
+    <a class='itens' href="{% url 'cartaz_app:index' %}">Em Cartaz</a>
+    <a class='itens' href="{% url 'usuario_app:login' %}">Login</a>
+    <a class='itens' href="{% url 'usuario_app:cadastro' %}">Cadastro</a>
+    <a class='itens' href="#">Administração</a>
 </header>
