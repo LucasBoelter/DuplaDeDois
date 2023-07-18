@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    {% block titulo_aba %}{% endblock titulo_aba %}
+    {% block css %}{% endblock css %}
+
+    {% comment %} bootstrap {% endcomment %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    {% block menu %}{% include 'global/parciais/menu.html' %}{% endblock menu %}
+    {% block conteudo %}{% endblock conteudo %}
+</body>
+</html>
