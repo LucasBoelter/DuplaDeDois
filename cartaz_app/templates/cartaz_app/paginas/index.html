@@ -1,1 +1,32 @@
 {% extends 'global/paginas/base_index.html' %}
+
+{% block titulo_aba %}Em Cartaz{% endblock titulo_aba %}
+
+{% block conteudo %}
+
+<!-- for -->
+<div class='caixa_user'>
+    <div class="row">
+        <div class="col-sm-4"><img src="" alt=""></div>
+        <div class="col-sm-8">
+            <h2 style="color: white">Titulo</h2>
+            <h4 style="color: white">Subtitulo</h4>
+            <p style="color: white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quisquam, magnam
+                dolorem rerum quasi eos nobis illo. Placeat consectetur maiores ipsa consequatur, animi facere accusamus
+                est ipsum fuga, omnis veritatis?</p>
+            <table style="text-align: center;">
+                <tr>
+                    <td><a class='btn btn-danger' href="">18:30</a></td>
+                    <td><a class='btn btn-danger' href="">18:30</a></td>
+                </tr>
+            </table>
+        </div>
+        <iframe width="12vw" height="720vw" src="https://www.youtube.com/embed/NVIpIMqeJVM"
+            title="Barbie | Trailer Oficial" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+    </div>
+</div>
+<!-- endfor -->
+
+{% endblock conteudo %}
