@@ -1,25 +1,31 @@
 {% extends 'global/paginas/base_index.html' %}
-{% block titulo_aba %}Cine Dupla D2{% endblock titulo_aba %}
+{% block titulo_aba %}Login{% endblock titulo_aba %}
 
 {% block conteudo %}
-<h1>pagina login.html</h1>
+{% comment %} <h1>pagina login.html</h1> {% endcomment %}
+
 
 <section>
-    <form action="{% url 'usuario_app:login' %}" method="POST">
-        {% csrf_token %}
-        {% for campo in formulario.visible_fields %}
-        <div>
-            <label form="{{ campo.id_for_label }}"><b>{{ campos.label }}</b></label>
-            {{ campo }}
-        </div>
-        {% endfor %}
-        <div>
-            <button type="submit">Login</button>
-        </div>
+    <div class='caixa_user'>
+        <form action="{% url 'usuario_app:login' %}" method="POST">
+            {% csrf_token %}
+            {% for campo in formulario.visible_fields %}
+            <div class="mb-3 mt-3">
+                <label class="form-label" form="{{ campo.id_for_label }}" style='width: 30%;'><p class='nome_campo'>{{ campo.label }}</p></label>
+                <br>
+                {{ campo }}
+            </div>
+            <br>
+            {% endfor %}
+            <div class="mb-3 mt-3">
+                <button class='btn btn-danger' type="submit">Login</button>
+            </div>
+        </form>
+    </div>
 </section>
 
 
-"""antes de aplicar do jeito certo para o django"""
+{% comment %} """antes de aplicar do jeito certo para o django"""
 <section>
     <form action="" method="">
         <div>
@@ -34,5 +40,7 @@
             <button type="submit">Login</button>
         </div>
     </form>
-</section>
+</section> {% endcomment %}
 {% endblock conteudo %}
+{% block js %}
+{% endblock js %}

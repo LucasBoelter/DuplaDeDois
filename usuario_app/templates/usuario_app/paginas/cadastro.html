@@ -1,28 +1,23 @@
 {% extends 'global/paginas/base_index.html' %}
-{% block titulo_aba %}Cine Dupla D2{% endblock titulo_aba %}
+{% block titulo_aba %}Cadastro{% endblock titulo_aba %}
 {% block conteudo %}
-<h1>pagina cadastro</h1>
 <section>
-    <form action="" method="">
-        <div>
-            <label for="nome_cadastro"><b>nome completo</b></label>
-            <input type="text" name="nome_cadastro" placeholder="ex: tom cruise" required>
-        </div>
-        <div>
-            <label for="email"><b>email</b></label>
-            <input type="email" name="email" placeholder="ex: tomcruise@com.br" required>
-        </div>
-        <div>
-            <label for="senha1"><b>Senha</b></label>
-            <input type="password" name="senha1" placeholder="digite sua senha" required>
-        </div>
-        <div>
-            <label for="senha2"><b>Confirmação de senha</b></label>
-            <input type="password" name="senha2" placeholder="digite novamente" required>
-        </div>
-        <div>
-            <button type="submit">Criar sua conta</button>
-        </div>
-    </form>
+    <div class='caixa_user'>
+        <form action="{% url 'usuario_app:cadastro' %}" method="POST">
+            {% csrf_token %}
+            {% for campo in formulario.visible_fields %}
+            <div class="">
+                <label class="form-label" form="{{ campo.id_for_label }}" style='width: 30%;'><p class='nome_campo'>{{ campo.label }}</p></label>
+                
+                {{ campo }}
+            </div>
+        
+            <br>
+            {% endfor %}
+            <div class="">
+                <button class='btn btn-danger' type="submit">Cadastrar</button>
+            </div>
+        </form>
+    </div>
 </section>
 {% endblock conteudo %}
