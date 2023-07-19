@@ -35,3 +35,23 @@
 }
 
 /* FIM topo */
+
+/* user */
+
+.caixa_user {
+    border: solid 6px;
+    border-color: rgba(172, 0, 0, 0.747);
+    border-radius: 20px;
+    margin: 8% 25% 40% 25%;
+    text-align: center;
+    background-color: #ffffff28;
+    padding: 5% 0;
+}
+
+.nome_campo {
+    color: #ffffff;
+    font-size: 1.5vw;
+    margin-right: 3px;
+}
+
+/* fim user */

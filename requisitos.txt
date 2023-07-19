@@ -1,7 +1,6 @@
 asgiref==3.7.2
 astroid==2.15.6
 autopep8==2.0.2
-backports.zoneinfo==0.2.1
 colorama==0.4.6
 dill==0.3.6
 Django==4.2.3
