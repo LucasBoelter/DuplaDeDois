@@ -4,5 +4,5 @@ from . import models
 class VersaoAdmin(admin.ModelAdmin):
     ...
 
-admin.site.register(Cartaz, VersaoAdmin)
+admin.site.register(models.Cartaz, VersaoAdmin)
 

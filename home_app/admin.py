@@ -4,4 +4,4 @@ from . import models
 class VersaoAdmin(admin.ModelAdmin):
     ...
 
-admin.site.register(Home, VersaoAdmin)
+admin.site.register(models.Home, VersaoAdmin)
