@@ -9,4 +9,5 @@ urlpatterns = [
     path('login/', views.view_login, name="login"),
     path('cadastro/', views.view_cadastro, name="cadastro"),
     path('admin/', admin.site.urls, name='admin'),
+    path('logout/', views.logout, name="logout"),
 ]
