@@ -13,6 +13,9 @@
 <body id="fundo">
     {% block menu %}{% include 'global/parciais/menu.html' %}{% endblock menu %}
     {% block conteudo %}{% endblock conteudo %}
+    {% for mensagem in messages %}
+    <div><p>{{ mensagem }}</p></div>
+    {% endfor %}
 </body>
     {% block js %}{% endblock js %}
 </html>
