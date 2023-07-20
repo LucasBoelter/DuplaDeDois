@@ -9,7 +9,7 @@ def view_index(request):
 def view_login(request):
     formulario = LoginForms()
 
-    if request.methodo == 'POST':
+    if request.method == 'POST':
         formulario = LoginForms(request.POST)
 
         if formulario.is_valid():
@@ -35,7 +35,7 @@ def view_login(request):
 def logout(request):
     auth.logout(request)
     messages.success(request, 'Logout efetuado com sucesso!!')
-    return redirect('home_app:login')
+    return redirect('home_app:index')
 
 def view_cadastro(request):
     formulario = CadastroForms()
@@ -44,7 +44,7 @@ def view_cadastro(request):
         formulario = CadastroForms(request.POST)
 
         if formulario.is_valid():
-            if formulario['senha1'].value != formulario['senha2'].value():
+            if formulario['senha1'].value() != formulario['senha2'].value():
                 messages.error(request, 'as senhas não são iguais')
                 return redirect ('usuario_app:cadastro')
             
