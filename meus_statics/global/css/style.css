@@ -72,3 +72,59 @@
     background-color: #ffffff28;
     padding: 5% 0;
 }
+
+/* fim cartaz */
+
+/* assentos */
+.titulo_assentos {
+    color: #ffffff;
+    font-size: 1.5vw;
+    margin-right: 3px;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.caixa_assentos {
+    border: solid 6px;
+    border-color: rgba(172, 0, 0, 0.747);
+    border-radius: 20px;
+    margin: 5% 20% 10% 20%;
+    text-align: center;
+    background-color: #ffffff28;
+    padding: 2% 5%;
+    overflow: auto;
+}
+
+.tela {
+    background-color: black;
+    border-radius: 10px;
+    margin-bottom: 5%;
+}
+
+.tela p {
+    color: white;
+    text-align: center;
+    margin: 5px;
+    height: 2vw;
+    font-size: 1.5vw;
+}
+
+.caixa_assentos table {
+    margin-left: 5%;
+}
+
+.caixa_assentos tr {
+    margin-left: 5%;
+}
+
+.colunas {
+    width: 100%;
+    justify-content: space-around;
+}
+
+.assento {
+    width: 5vw;
+    height: 4vw;
+    overflow: auto;
+    font-size: 2vw;
+}
