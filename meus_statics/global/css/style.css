@@ -55,3 +55,20 @@
 }
 
 /* fim user */
+
+/* cartaz */
+.img {
+    width: 20vw;
+    height: auto;
+    margin-left: 50px;
+}
+
+.caixa_cartaz {
+    border: solid 6px;
+    border-color: rgba(172, 0, 0, 0.747);
+    border-radius: 20px;
+    margin: 8% 20% 10% 20%;
+    text-align: center;
+    background-color: #ffffff28;
+    padding: 5% 0;
+}
