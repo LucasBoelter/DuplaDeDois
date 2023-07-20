@@ -46,10 +46,6 @@ def view_cadastro(request):
         formulario = CadastroForms(request.POST)
 
         if formulario.is_valid():
-            if formulario['senha1'].value() != formulario['senha2'].value():
-                messages.error(request, 'as senhas não são iguais')
-                return redirect ('usuario_app:cadastro')
-            
             nome = formulario['nome_completo'].value()
             email = formulario['email'].value()
             senha = formulario['senha1'].value()

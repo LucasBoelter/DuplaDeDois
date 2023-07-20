@@ -8,11 +8,15 @@
             {% for campo in formulario.visible_fields %}
             <div class="">
                 <label class="form-label" form="{{ campo.id_for_label }}" style='width: 30%;'><p class='nome_campo'>{{ campo.label }}</p></label>
-                
-            
                 {{ campo }}
             </div>
-        
+            
+            {% for erro in campo.erros %}
+            <div>
+                {{ erro }}
+            </div>
+            {% endfor %}
+
             <br>
             {% endfor %}
             <div class="">

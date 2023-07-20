@@ -77,8 +77,17 @@ class CadastroForms(forms.Form):
             if ' ' in nome:
                 raise forms.ValidationError('espaços n são permitidos')
             else:
-                return none
+                return nome
 
+    def clean_senha_2(self):
+        senha1 = self.cleaned_data.get('senha1')
+        senha2 = self.cleaned_data.get('senha1')
+
+        if senha1 and senha2:
+            if senha1 != senha2:
+                raise forms.ValidationError('as senhas não são iguais.')
+            else:
+                return senha2
 
 
 
