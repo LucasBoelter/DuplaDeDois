@@ -1,0 +1,15 @@
+{% extends 'global/paginas/base_index.html' %}
+
+{% block titulo_aba %}Em Cartaz{% endblock titulo_aba %}
+
+{% block conteudo %}
+{% if imagens %}
+<ul>
+    {% for imagem in imagens %}
+    <li><a href="">{{imagem}}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Filme não encontrado!</p>
+{% endif %}
+{% endblock conteudo %}
