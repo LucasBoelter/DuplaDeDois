@@ -67,3 +67,32 @@ class CadastroForms(forms.Form):
             }
         )
     )
+
+    def clean_nome_cadastro(self):
+        nome = self.cleaned_data.get('nome_completo')
+
+        if nome:
+            nome = nome.strip()
+
+            if ' ' in nome:
+                raise forms.ValidationError('espaços n são permitidos')
+            else:
+                return none
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

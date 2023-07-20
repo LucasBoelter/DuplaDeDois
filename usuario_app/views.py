@@ -4,7 +4,9 @@ from django.contrib import auth, messages
 from usuario_app.forms import LoginForms , CadastroForms
 
 def view_index(request):
-    return render(request, "usuario_app/paginas/index.html", )
+    if not request.user.is_authenticated:
+        messages.error(request, 'Usuário não logado')
+        return render(request, "usuario_app/paginas/index.html", )
 
 def view_login(request):
     formulario = LoginForms()
