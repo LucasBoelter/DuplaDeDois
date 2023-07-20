@@ -5,28 +5,28 @@
 {% block conteudo %}
 
 <!-- for -->
-<div class='caixa_user'>
+{% for item in imagens %}
+<div class='caixa_cartaz'>
     <div class="row">
-        <div class="col-sm-4"><img src="" alt=""></div>
+        <div class="col-sm-4"><img src="{{item.imagem.url}}" alt="" class='img'></div>
         <div class="col-sm-8">
-            <h2 style="color: white">Titulo</h2>
+            <h2 style="color: white">{{item.titulo}}</h2>
             <h4 style="color: white">Subtitulo</h4>
-            <p style="color: white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quisquam, magnam
-                dolorem rerum quasi eos nobis illo. Placeat consectetur maiores ipsa consequatur, animi facere accusamus
-                est ipsum fuga, omnis veritatis?</p>
-            <table style="text-align: center;">
-                <tr>
-                    <td><a class='btn btn-danger' href="">18:30</a></td>
-                    <td><a class='btn btn-danger' href="">18:30</a></td>
-                </tr>
-            </table>
+            <a class='btn btn-danger' href="">18:30</a>
+            <a class='btn btn-danger' href="">18:30</a>
+            <p style="color: white">{{item.sinopse}}</p>
+            
         </div>
-        <iframe width="12vw" height="720vw" src="https://www.youtube.com/embed/NVIpIMqeJVM"
-            title="Barbie | Trailer Oficial" frameborder="0"
+        <br>
+        <div style='margin: 100px 5px 5px 5px'>
+            <iframe width="720vw" height="360vw" src="{{item.link_trailer}}"
+            title="{{item.titulo}}" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
+        </div>
     </div>
 </div>
+{% endfor %}
 <!-- endfor -->
 
 {% endblock conteudo %}
