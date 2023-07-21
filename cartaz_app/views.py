@@ -16,4 +16,12 @@ def view_busca(request):
 
     return render(request, 'cartaz_app/paginas/busca.html', context={'filmes':filmes})
 
+def view_add_imagem(request):
+    return render (request, 'cartaz_app/paginas/adiciona_imagem.html' )
+
+def view_edt_imagem(request):
+    return render (request, 'cartaz_app/paginas/edita_imagem.html' )
+
+def view_apg_imagem(request):
+    return render (request, 'cartaz_app/paginas/apaga_imagem.html' )
 
