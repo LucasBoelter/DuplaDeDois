@@ -10,7 +10,7 @@ class Cartaz(models.Model):
     titulo = models.CharField(max_length=100)
     subtitulo = models.CharField(max_length=100, null=True)
     #add categoria pra podermos selecionar qm é dps
-    categoria = models.CharField(max_length=100, choices=OPCOES_CATEGORIA, default='')
+    categoria = models.CharField(max_length=100, choices=OPCOES_CATEGORIA, default='administrador', null=True)
     data_lancamento = models.DateField(default=datetime.now)
     sinopse = models.TextField(max_length=400)
     link_trailer = models.CharField(max_length=200)
