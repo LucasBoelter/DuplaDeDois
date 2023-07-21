@@ -1,0 +1,31 @@
+{% for item in filmes %}
+<div class='caixa_cartaz'>
+    <div class="row">
+        <div class="col-sm-4"><img src="{{item.imagem.url}}" alt="" class='img'></div>
+        <div class="col-sm-8">
+            <h2 style="color: white">{{item.titulo}}</h2>
+            <h4 style="color: white">{{item.subtitulo}}</h4>
+            <br>
+            <br>
+            <h4 style="color: white">Data de Lançamento:<br>{{item.data_lancamento}}</h4>
+            <br>
+            <br>
+            <a class='btn btn-danger' href="">18:30</a>
+            <a class='btn btn-danger' href="">18:30</a>
+            <br>
+            <br>
+            <div class='sinopse'>
+                <p style="color: white">{{item.sinopse}}</p>
+            </div>
+            
+        </div>
+        <br>
+        <div style='margin: 100px 5px 5px 5px'>
+            <iframe width="720vw" height="360vw" src="{{item.link_trailer}}"
+            title="{{item.titulo}}" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+{% endfor %}
