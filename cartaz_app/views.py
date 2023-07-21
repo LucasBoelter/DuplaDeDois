@@ -3,7 +3,8 @@ from cartaz_app.models import Cartaz
 
 def view_index(request):
     filmes = Cartaz.objects.all()
-    return render(request, "cartaz_app/paginas/index.html", context={'imagens': filmes} )
+    # troquei para filmes a chave do dicionário pq n faz sentido usar imagem
+    return render(request, "cartaz_app/paginas/index.html", context={'filmes' : filmes} )
 
 def view_busca(request):
     filmes = Cartaz.objects.all()
