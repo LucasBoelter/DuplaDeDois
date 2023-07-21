@@ -79,9 +79,9 @@ class CadastroForms(forms.Form):
             else:
                 return nome
 
-    def clean_senha_2(self):
+    def clean_senha2(self):
         senha1 = self.cleaned_data.get('senha1')
-        senha2 = self.cleaned_data.get('senha1')
+        senha2 = self.cleaned_data.get('senha2')
 
         if senha1 and senha2:
             if senha1 != senha2:
