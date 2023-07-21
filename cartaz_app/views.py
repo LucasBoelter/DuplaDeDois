@@ -1,22 +1,19 @@
-from django.shortcuts import render
-from . import models
+from django.shortcuts import render, redirect
+from cartaz_app.models import Cartaz
 
 def view_index(request):
-    filmes = models.Cartaz.objects.all()
+    filmes = Cartaz.objects.all()
     return render(request, "cartaz_app/paginas/index.html", context={'imagens': filmes} )
 
 def view_busca(request):
-    filme = models.Cartaz.objects.all()
-
+    filmes = Cartaz.objects.all()
     if 'buscando' in request.GET:
         nome = request.GET['buscando']
         if nome:
-            filme = filme.filter(nome__icontains=nome)
+            filmes = filmes.filter(titulo__icontains=nome)
         else:
-            filme = []
+            filmes = []
 
-    return render(request, 'galeria/paginas/busca.html', context={'imagens':filme})
+    return render(request, 'cartaz_app/paginas/busca.html', context={'filmes':filmes})
 
-    # imagens = models.Cartaz.objects.filter()
-    # return render(request, "cartaz_app/paginas/index.html", context={'imagens': imagens} )
 

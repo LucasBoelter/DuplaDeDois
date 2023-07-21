@@ -6,5 +6,5 @@ app_name = "cartaz_app"
 
 urlpatterns = [
     path('', views.view_index, name="index"),
-    path('busca/', views.view_index, name="busca"),
+    path('busca/', views.view_busca, name="busca"),
 ]
