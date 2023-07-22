@@ -91,6 +91,7 @@ class CadastroForms(forms.Form):
                 return senha2
 
 class ImagemUsuarioForm(forms.ModelForm):
+<<<<<<< HEAD
     class Meta:
         model = ImagemUsuario
         
@@ -99,12 +100,66 @@ class ImagemUsuarioForm(forms.ModelForm):
             'categoria': forms.Select(),
             'foto': forms.FileInput(),
             'usuario': forms.Select(),
-        
-        }
+=======
+    nome = forms.CharField(
+        label= 'Nome Completo',
+        required=True,
+        max_length=100,
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': 'Ex.: Tom Cruise',
+            }
+        )
+    )
 
-        labels = {
-            'usuario':'Usuario',
-        }
+    categoria = forms.CharField(
+        label= 'Categoria',
+        required=True,
+        max_length=100,
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': 'Ex.: Tom Cruise',
+            }
+        )
+    )
+
+    foto = image = forms.FileField(
+        label='Imagem',
+        required=False,
+        widget=forms.FileInput(
+            attrs={
+                'class': 'file-input',
+                'title': 'Escolha a imagem',
+                'data-filename-placement': 'outside',
+            }
+        ),
+    )
+
+    nome = forms.CharField(
+        label= 'Nome Completo',
+        required=True,
+        max_length=100,
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': 'Ex.: tom_cruise',
+            }
+        )
+    )
+#     class Meta:
+#         model = ImagemUsuario
+
+#         widgets = {
+#             'nome': forms.TextInput(),
+#             'categoria': forms.Select(),
+#             'foto': forms.FileInput(),
+#             'usuario': forms.Select(),
+>>>>>>> 0bec8dd6008ce8cf0cb15d9b96017010ded6ef85
+        
+#         }
+
+#         labels = {
+#             'usuario':'Usuario',
+#         }
         
 
 

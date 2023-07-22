@@ -93,6 +93,7 @@
     border-radius: 20px;
     margin: 5% 20% 10% 20%;
     text-align: center;
+    text-align: -webkit-center;
     background-color: #ffffff28;
     padding: 2% 5%;
     overflow: auto;
@@ -112,15 +113,7 @@
     font-size: 1.5vw;
 }
 
-.caixa_assentos table {
-    margin-left: 5%;
-}
-
-.caixa_assentos tr {
-    margin-left: 5%;
-}
-
-.colunas {
+.linhas {
     width: 100%;
     justify-content: space-around;
 }
@@ -130,4 +123,8 @@
     height: 5vw;
     overflow: auto;
     font-size: 2vw;
+}
+
+td:nth-child(2) > button {
+    margin-right: 50px;
 }
