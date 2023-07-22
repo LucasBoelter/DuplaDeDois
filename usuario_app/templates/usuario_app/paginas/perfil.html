@@ -1,0 +1,14 @@
+{% if imagem %}
+<ul>
+    <li>{{ imagem }}</li>
+    <li>{{ imagem.descricao }}</li>
+    <li>{{ imagem.categoria }}</li>
+    <li><img width=200px src="{{ imagem.foto.url }}"></li>
+</ul>
+<div>
+    <a href="% url 'usuario_app:editar_imagem' imagem.id %}">Editar</a>
+    <a href="% url 'usuario_app:apagar_imagem' imagem.id %}">Apagar</a>
+</div>
+{% else %}
+<p>nada foi enviado</p>
+{% endif %%}
