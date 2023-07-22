@@ -8,7 +8,6 @@ class Filme(admin.ModelAdmin):
     list_filter = ("em_cartaz",)
     list_editable = ("em_cartaz", 'data_lancamento',)
     list_per_page = 10
-    list_filter = ('categoria', 'usuario')
 
 admin.site.register(models.Cartaz, Filme)
 

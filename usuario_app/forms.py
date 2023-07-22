@@ -1,4 +1,5 @@
 from django import forms
+from usuario_app.models import ImagemUsuario
 
 class LoginForms(forms.Form):
     nome_login = forms.CharField(
@@ -89,9 +90,22 @@ class CadastroForms(forms.Form):
             else:
                 return senha2
 
+class ImagemUsuarioForm(forms.ModelForm):
+    class Meta:
+        model = ImagemUsuario
 
+        widgets = {
+            'nome': forms.TextInput(),
+            'categoria': forms.Select(),
+            'foto': forms.FileInput(),
+            'usuario': forms.Select(),
+        
+        }
 
-
+        labels = {
+            'usuario':'Usuario',
+        }
+        
 
 
 

@@ -1,3 +1,5 @@
 from django.contrib import admin
+from usuario_app.models import ImagemUsuario
 
-# Register your models here.
+class ImagemAdmin(admin.ModelAdmin):
+    list_filter = ('pessoa','pessoaDeficiente')

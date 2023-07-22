@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
 from usuario_app.forms import LoginForms , CadastroForms
+from usuario_app.models import ImagemUsuario
+from usuario_app.forms import ImagemUsuarioForm
 
 def view_index(request):
     if not request.user.is_authenticated:
@@ -65,3 +67,14 @@ def view_cadastro(request):
             return redirect('usuario_app:login')
 
     return render(request, "usuario_app/paginas/cadastro.html", context = {'formulario':formulario})
+
+def view_add_imagem(request):
+    #verificando se o usuario está logado, pra mostrar os dados...
+  
+    return render (request, 'usuario_app/paginas/adiciona_imagem.html' )
+
+def view_edt_imagem(request):
+    return render (request, 'usuario_app/paginas/edita_imagem.html' )
+
+def view_apg_imagem(request):
+    return render (request, 'usuario_app/paginas/apaga_imagem.html' )
