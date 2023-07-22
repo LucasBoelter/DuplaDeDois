@@ -13,50 +13,13 @@
                     <p>Tela</p>
                 </div>
             </tr>
-            <tr class="colunas">
-                <td><button id='A1' value='1' name='btn_a1' class="btn btn-danger assento">A1</button></td>
-                <td><button id='A2' value='1' class="btn btn-danger assento">A2</button></td>
-                <td>
-                    <div>.....</div>
-                </td>
-                <td><button id='A3' value='1' class="btn btn-danger assento">A3</button></td>
-                <td><button id='A4' value='1' class="btn btn-danger assento">A4</button></td>
-                <td><button id='A5' value='1' class="btn btn-danger assento">A5</button></td>
-                <td><button id='A6' value='1' class="btn btn-danger assento">A6</button></td>
-            </tr>
-            <tr>
-                <td><button id='B1' value='1' class="btn btn-danger assento">B1</button></td>
-                <td><button id='B2' value='1' class="btn btn-danger assento">B2</button></td>
-                <td>
-                    <div>.....</div>
-                </td>
-                <td><button id='B3' value='1' class="btn btn-danger assento">B3</button></td>
-                <td><button id='B4' value='1' class="btn btn-danger assento">B4</button></td>
-                <td><button id='B5' value='1' class="btn btn-danger assento">B5</button></td>
-                <td><button id='B6' value='1' class="btn btn-danger assento">B6</button></td>
-            </tr>
-            <tr>
-                <td><button id='C1' value='1' class="btn btn-danger assento">C1</button></td>
-                <td><button id='C2' value='1' class="btn btn-danger assento">C2</button></td>
-                <td>
-                    <div>.....</div>
-                </td>
-                <td><button id='C3' value='1' class="btn btn-danger assento">C3</button></td>
-                <td><button id='C4' value='1' class="btn btn-danger assento">C4</button></td>
-                <td><button id='C5' value='1' class="btn btn-danger assento">C5</button></td>
-                <td><button id='C6' value='1' class="btn btn-danger assento">C6</button></td>
-            </tr>
-            <tr>
-                <td><button id='D1' value='1' class="btn btn-danger assento">D1</button></td>
-                <td><button id='D2' value='1' class="btn btn-danger assento">D2</button></td>
-                <td>
-                    <div>.....</div>
-                </td>
-                <td><button id='D3' value='1' class="btn btn-danger assento">D3</button></td>
-                <td><button id='D4' value='1' class="btn btn-danger assento">D4</button></td>
-                <td><button id='D5' value='1' class="btn btn-danger assento">D5</button></td>
-                <td><button id='D6' value='1' class="btn btn-danger assento">D6</button></td>
-            </tr>
+            {% for fileira in fileiras %}
+                <tr class="linhas">
+                    {%for cadeira in quant_cadeiras %}
+                        <td><button id='{{fileira}}{{cadeira}}' value=1 name='btn{{fileira}}{{cadeira}}' class="btn btn-danger assento">{{fileira}}{{cadeira}}</button></td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
         </table>
         <br>
     <form action="{% url 'assentos_app:pag' %}">

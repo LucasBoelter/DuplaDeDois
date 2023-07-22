@@ -1,20 +1,16 @@
 from django.shortcuts import render
 
 def view_index(request):
-    # if 'btn_a1' in request.GET:
-    #     assentos=request.GET['btn_a1']
-    #     print(assentos)
-    # if request.method == 'POST':
-    #     if 'btn_a1' in request.POST:
-    #         btn_id= 'btn_a1'
-    #         print(btn_id)
-        
-    #     if 'finalizar' in request.POST:
-    #         buttons_clicked = []
-    #         for key in request.POST:
-    #             if key.startswith('button'):
-    #                 buttons_clicked.append(key)
-    return render(request, "assentos_app/paginas/index.html")
+    array_fileiras = ['A', 'B', 'C', 'D']
+    cadeiras_por_fileira = 7
+
+    context = {
+        'fileiras' : array_fileiras,
+        'quant_cadeiras' : range(1, cadeiras_por_fileira)
+    } 
+
+    
+    return render(request, "assentos_app/paginas/index.html", context)
 
 def view_pag(request):
     buttons_clicked = request.GET.get('finalizar', '').split(',')

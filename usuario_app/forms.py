@@ -91,20 +91,64 @@ class CadastroForms(forms.Form):
                 return senha2
 
 class ImagemUsuarioForm(forms.ModelForm):
-    class Meta:
-        model = ImagemUsuario
+    nome = forms.CharField(
+        label= 'Nome Completo',
+        required=True,
+        max_length=100,
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': 'Ex.: Tom Cruise',
+            }
+        )
+    )
 
-        widgets = {
-            'nome': forms.TextInput(),
-            'categoria': forms.Select(),
-            'foto': forms.FileInput(),
-            'usuario': forms.Select(),
+    categoria = forms.CharField(
+        label= 'Categoria',
+        required=True,
+        max_length=100,
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': 'Ex.: Tom Cruise',
+            }
+        )
+    )
+
+    foto = image = forms.FileField(
+        label='Imagem',
+        required=False,
+        widget=forms.FileInput(
+            attrs={
+                'class': 'file-input',
+                'title': 'Escolha a imagem',
+                'data-filename-placement': 'outside',
+            }
+        ),
+    )
+
+    nome = forms.CharField(
+        label= 'Nome Completo',
+        required=True,
+        max_length=100,
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': 'Ex.: tom_cruise',
+            }
+        )
+    )
+#     class Meta:
+#         model = ImagemUsuario
+
+#         widgets = {
+#             'nome': forms.TextInput(),
+#             'categoria': forms.Select(),
+#             'foto': forms.FileInput(),
+#             'usuario': forms.Select(),
         
-        }
+#         }
 
-        labels = {
-            'usuario':'Usuario',
-        }
+#         labels = {
+#             'usuario':'Usuario',
+#         }
         
 
 
