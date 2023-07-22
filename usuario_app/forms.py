@@ -93,7 +93,7 @@ class CadastroForms(forms.Form):
 class ImagemUsuarioForm(forms.ModelForm):
     class Meta:
         model = ImagemUsuario
-
+        
         widgets = {
             'nome': forms.TextInput(),
             'categoria': forms.Select(),

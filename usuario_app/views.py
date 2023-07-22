@@ -8,7 +8,9 @@ from usuario_app.forms import ImagemUsuarioForm
 def view_index(request):
     if not request.user.is_authenticated:
         messages.error(request, 'Usuário não logado')
-        return render(request, "usuario_app/paginas/index.html", )
+        return render(request, "usuario_app/paginas/login.html")
+    
+    return render(request, "home_app/paginas/index.html", context={})
 
 def view_login(request):
     formulario = LoginForms()
@@ -111,5 +113,5 @@ def view_apg_imagem(request, id_url):
     imagem = imagem[0]
     imagem.delete()
     messages.success(request, 'Imagem apagada com sucesso.')
-    
+
     return render (request, 'usuario_app/paginas/apaga_imagem.html' )
