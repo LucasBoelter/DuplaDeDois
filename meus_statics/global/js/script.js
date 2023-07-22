@@ -1,4 +1,10 @@
 let quant = 0
+var buttonsClicked =[]
+document.getElementById("finalizar").addEventListener("click", finalizar);
+function finalizar(){
+    window.location.href = "/pagamento?finalizar=" + buttonsClicked.join(",");
+}
+
 let valor_a1 = 0
 document.getElementById("A1").addEventListener("click", a1);
 function a1() {
@@ -10,6 +16,7 @@ function a1() {
         console.log('if')
         quant = quant + 1
         console.log('quant' + quant)
+        buttonsClicked.push('a1')
     }
     else {
         console.log('else')
@@ -30,6 +37,7 @@ function a2() {
         console.log('if')
         quant = quant + 1
         console.log('quant' + quant)
+        localStorage={"aceito":'a2'}
     }
     else {
         console.log('else')
