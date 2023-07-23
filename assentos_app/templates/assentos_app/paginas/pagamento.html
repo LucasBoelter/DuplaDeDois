@@ -22,13 +22,17 @@
     <div style="margin: 0 25%">
         <form action="{% url 'assentos_app:pag' %}" method="POST">
             {% csrf_token %}
-            <select class="form-select">
+            {% for campo in formulario.visible_fields %}
+                <label for="{{ campo.id_for_label }}">{{ campo.label }}</label>
+                {{ campo }}
+            {% endfor %}
+            <!-- <select class="form-select">
                 <option>Débito</option>
                 <option>Crédito à vista</option>
                 <option>Pix</option>
-              </select>
-              <br>
-              <button class="btn btn-danger" type="submit" >Finalizar</button>
+            </select> -->
+            <br>
+            <button class="btn btn-danger" type="submit" >Finalizar</button>
         </form>
 
     </div>
