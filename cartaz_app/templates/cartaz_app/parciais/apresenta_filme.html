@@ -11,9 +11,10 @@
             <br>
             <br>
             <button class='btn btn-danger' href="" disabled>{{ item.horario1 }}</button>
-            {% if item.horario2 %}
-            <a class='btn btn-danger' href="{% url 'assentos_app:index' %}">{{ item.horario2 }}</a>
-            {% endif %}
+            <form action="{% url 'assentos_app:index' %}">
+                <input type="hidden" id="codigoFilme" name="codigoFilme" value="{{ item.titulo }}">
+                <button class='btn btn-danger' type="submit">{{ item.horario2 }}</button>
+            </form>
             <br>
             <br>
             <div class='sinopse'>

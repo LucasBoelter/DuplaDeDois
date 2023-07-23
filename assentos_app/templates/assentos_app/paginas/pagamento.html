@@ -1,0 +1,22 @@
+{% extends 'global/paginas/base_index.html' %}
+{% load static %}
+{% block titulo_aba %}Pagamento{% endblock titulo_aba %}
+
+{% block conteudo %}
+<div class="caixa_pag">
+    <h2>Dados da Compra</h2>
+    {{codigo_filme}}
+    {{lugares_selecionados}}
+</div>
+<div class="caixa_pag">
+    <h2>Forma de pagamento</h2>
+    <form action="{% url 'assentos_app:pag' %}" method="POST">
+        <select class="form-select">
+            <option>Débito</option>
+            <option>Crédito à vista</option>
+            <option>Pix</option>
+          </select>
+          <button class="btn btn-danger" type="submit" >Finalizar Pagamento</button>
+    </form>
+</div>
+{% endblock conteudo %}

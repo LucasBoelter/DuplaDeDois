@@ -23,6 +23,8 @@
         </table>
         <br>
     <form action="{% url 'assentos_app:pag' %}">
+        <input type="hidden" name="lugaresSelecionados[]" id="lugaresSelecionados" value>
+        <input type="hidden" id="codigoFilme" name="codigoFilme" value="{{codigo_filme}}">
         <button class="btn btn-danger" id='finalizar' name="finalizar" type="submit">Finalizar</button>
     </form>
 </div>
