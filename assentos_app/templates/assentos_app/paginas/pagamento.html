@@ -3,20 +3,34 @@
 {% block titulo_aba %}Pagamento{% endblock titulo_aba %}
 
 {% block conteudo %}
+
 <div class="caixa_pag">
     <h2>Dados da Compra</h2>
-    {{codigo_filme}}
-    {{lugares_selecionados}}
-</div>
-<div class="caixa_pag">
+    <br>
+    {% for item in codigo_filme %}
+    <p>Filme: <span class="info">{{item.titulo}}</span></p>
+    <p>Data: <span class="info">{{data_compra}}</span></p>
+    <p>Hora: <span class="info">{{item.horario2}}</span></p>
+    <p>Lugar: <span class="info">{{lugares_selecionados}}</span></p>
+    <p>{{quant}} (und) ----- <span class="info"> R$ {{valor}},00</span></p>
+    {% endfor %}
+
+    <br>
+    <br>
     <h2>Forma de pagamento</h2>
-    <form action="{% url 'assentos_app:pag' %}" method="POST">
-        <select class="form-select">
-            <option>Débito</option>
-            <option>Crédito à vista</option>
-            <option>Pix</option>
-          </select>
-          <button class="btn btn-danger" type="submit" >Finalizar Pagamento</button>
-    </form>
+    <br>
+    <div style="margin: 0 25%">
+        <form action="{% url 'assentos_app:pag' %}" method="POST">
+            {% csrf_token %}
+            <select class="form-select">
+                <option>Débito</option>
+                <option>Crédito à vista</option>
+                <option>Pix</option>
+              </select>
+              <br>
+              <button class="btn btn-danger" type="submit" >Finalizar</button>
+        </form>
+
+    </div>
 </div>
 {% endblock conteudo %}

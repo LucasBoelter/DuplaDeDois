@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
         let assentoId = target.getAttribute('id')
         let inputLugaresSelecionados = document.getElementById('lugaresSelecionados');
-        console.log(assentoId)
+
         // Alterna entre as classes que dão a cor para o assento
         target.classList.toggle("btn-danger");
         target.classList.toggle("btn-dark");
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function(){
             //Caso não tenha sido selecionado pelo usuário, será adicionado ao array
             lugares_selecionados.push(assentoId);
         }
-        console.log(lugares_selecionados)
+
         inputLugaresSelecionados.value = lugares_selecionados;
         
     }

@@ -141,3 +141,13 @@ td:nth-child(2) > button {
     padding: 5% 0;
     color: white;
 }
+
+.caixa_pag p{
+    font-size: 1.5vw;
+}
+
+.info{
+    color: rgba(172, 0, 0, 0.747);
+    font-weight:bold;
+    font-size: 1.7vw;
+}

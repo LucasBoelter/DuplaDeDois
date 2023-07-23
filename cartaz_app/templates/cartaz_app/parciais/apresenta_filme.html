@@ -10,8 +10,8 @@
             <h4 style="color: white">Data de Lançamento:<br>{{item.data_lancamento}}</h4>
             <br>
             <br>
-            <button class='btn btn-danger' href="" disabled>{{ item.horario1 }}</button>
             <form action="{% url 'assentos_app:index' %}">
+                <button class='btn btn-danger' href="" disabled>{{ item.horario1 }}</button>
                 <input type="hidden" id="codigoFilme" name="codigoFilme" value="{{ item.titulo }}">
                 <button class='btn btn-danger' type="submit">{{ item.horario2 }}</button>
             </form>
