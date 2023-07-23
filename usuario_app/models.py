@@ -9,7 +9,7 @@ class ImagemUsuario(models.Model):
     ]
     categoria = models.CharField(max_length=100, choices=OPCOES_CATEGORIA, default='', null=True)
     nome = models.CharField(max_length=100, null=False, blank=False)
-    foto = models.ImageField(upload_to='imagem/%Y/%m%d', blank=True)
+    foto = models.ImageField(upload_to='imagem/%Y/%m/%d/', blank=True)
     usuario = models.ForeignKey(
         to = User,
         on_delete= models.SET_NULL,

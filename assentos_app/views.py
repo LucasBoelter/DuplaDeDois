@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from cartaz_app.models import Cartaz
 from datetime import datetime
 
@@ -19,6 +20,11 @@ def view_index(request):
     return render(request, "assentos_app/paginas/index.html", context)
 
 def view_pag(request):
+    #validando o usuario
+    if not request.user.is_authenticated:
+        messages.error(request, 'Usuário não logado')
+        return render(request, "usuario_app/paginas/login.html")
+    
     # recebendo dados
     lugares_selecionados = request.GET.get('lugaresSelecionados[]').split(',')
     codigo_filme = request.GET.get('codigoFilme')

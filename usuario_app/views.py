@@ -41,7 +41,7 @@ def view_login(request):
 def logout(request):
     auth.logout(request)
     messages.success(request, 'Logout efetuado com sucesso!!')
-    return redirect('home_app:index')
+    return redirect('usuario_app:login')
 
 def view_cadastro(request):
     formulario = CadastroForms()
