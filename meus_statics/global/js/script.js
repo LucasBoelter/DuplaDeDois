@@ -1,43 +1,35 @@
-// ouvinte de eventos de clique
-document.addEventListener("DOMContentLoaded", function(event){
+document.addEventListener("DOMContentLoaded", function(){
 
     let lugares_selecionados = []
 
-    // seleciona todos os elementos do html que possuem a class assentos e armazena em assentos
     const assentos = document.querySelectorAll('.assento');
     
-    // função que recebe um obj de evento como paramentro (executa quando um btn for clicado)
     const seleciona_lugar = ({target}) => {
-        console.log(target);
+        // Colocar a interação do botão aqui dentro, oque ele deve fazer
 
-        // Verifica se o botão já possui a classe "btn-dark" ou seja, verifica se foi selecionado
-        // se sim isSelected recebe true
-       const isSelected = target.classList.contains('btn-dark');
+        let assentoId = target.getAttribute('id')
+        let inputLugaresSelecionados = document.getElementById('lugaresSelecionados');
 
-        // Adiciona ou remove o elemento target de lugares_selecionados com base no estado atual do botão
-        //  se true adiciona o target em lugares_selecionados
-        if (!isSelected) {
-            lugares_selecionados.push(target);
-        }
-        // se n, remove de lugares selecionados
-        else {
-            // coleta a posição do target
-            const index = lugares_selecionados.indexOf(target);
-            if (index > -1) {
-                // remove de lugares selecionados
-                lugares_selecionados.splice(index, 1);
-            }
+        // Alterna entre as classes que dão a cor para o assento
+        target.classList.toggle("btn-danger");
+        target.classList.toggle("btn-dark");
+
+        // Verifica se o assento foi selecionado pelo usuário
+        if(lugares_selecionados.includes(assentoId)){
+            //Caso já tenha sido selecionado pelo usuário, será removido do array
+            let index = lugares_selecionados.indexOf(assentoId);
+            lugares_selecionados.splice(index, 1);
+        }else{
+            //Caso não tenha sido selecionado pelo usuário, será adicionado ao array
+            lugares_selecionados.push(assentoId);
         }
 
+        inputLugaresSelecionados.value = lugares_selecionados;
         
-        // Adiciona ou remove a classe "btn-dark" com base no estado atual do botão (selecionado ou não)
-        target.classList.toggle('btn-dark', !isSelected);
-        console.log('lugares selecionados: ', lugares_selecionados);
     }
 
-    // ouvinte que verifica a interação com os botoes com class assento e encaminha para a função quando clicados
+    //Atribui o evento de click a todos os botões de assento
     assentos.forEach((element) => {
-        element.addEventListener('click', seleciona_lugar)
+        element.addEventListener('click', seleciona_lugar);
     })
-
 });

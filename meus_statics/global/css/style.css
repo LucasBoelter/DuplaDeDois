@@ -128,3 +128,26 @@
 td:nth-child(2) > button {
     margin-right: 50px;
 }
+/* fim assentos */
+
+/* pagamento */
+.caixa_pag {
+    border: solid 6px;
+    border-color: rgba(172, 0, 0, 0.747);
+    border-radius: 20px;
+    margin: 5% 25% 5% 25%;
+    text-align: center;
+    background-color: #ffffff28;
+    padding: 5% 0;
+    color: white;
+}
+
+.caixa_pag p{
+    font-size: 1.5vw;
+}
+
+.info{
+    color: rgba(172, 0, 0, 0.747);
+    font-weight:bold;
+    font-size: 1.7vw;
+}
