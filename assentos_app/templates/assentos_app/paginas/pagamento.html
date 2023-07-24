@@ -7,30 +7,26 @@
 <div class="caixa_pag">
     <h2>Dados da Compra</h2>
     <br>
-    {% for item in codigo_filme %}
-    <p>Filme: <span class="info">{{item.titulo}}</span></p>
+    <p>Filme: <span class="info">{{codigo_filme}}</span></p>
     <p>Data: <span class="info">{{data_compra}}</span></p>
-    <p>Hora: <span class="info">{{item.horario2}}</span></p>
+    <p>Hora: <span class="info">{{horario}}</span></p>
     <p>Lugar: <span class="info">{{lugares_selecionados}}</span></p>
     <p>{{quant}} (und) ----- <span class="info"> R$ {{valor}},00</span></p>
-    {% endfor %}
+    <br>
+    <br>
 
-    <br>
-    <br>
-    <h2>Forma de pagamento</h2>
-    <br>
     <div style="margin: 0 25%">
         <form action="{% url 'assentos_app:pag' %}" method="POST">
             {% csrf_token %}
-            {% for campo in formulario.visible_fields %}
-                <label for="{{ campo.id_for_label }}">{{ campo.label }}</label>
+            {% for campo in formulario %}
+                {% if not campo.is_hidden %}
+                    <label for="{{ campo.id_for_label }}"><h2>{{ campo.label }}</h2></label>
+                    <br>
+                {% endif %}    
                 {{ campo }}
+
             {% endfor %}
-            <!-- <select class="form-select">
-                <option>Débito</option>
-                <option>Crédito à vista</option>
-                <option>Pix</option>
-            </select> -->
+            <br>
             <br>
             <button class="btn btn-danger" type="submit" >Finalizar</button>
         </form>

@@ -20,23 +20,29 @@ class VendasForm(forms.ModelForm):
     class Meta:
         model = Vendas
 
-        fields = ['forma_pagamento']
+        fields = ['forma_pagamento', 'assento', 'filme']
         # exclude = ['filme', 'assento']
 
         widgets = {
-            'filme': forms.TextInput(
+            'filme': forms.HiddenInput(
                 attrs={
                     'name': 'filme',
                     'id':'filme'
                     }
             ),
-            'assento': forms.TextInput(
+            
+            'assento': forms.HiddenInput(
                 attrs={
                     'name': 'assento',
                     'id':'assento'
                     }
             ),
-            'forma_pagamento': forms.Select(),
+
+            'forma_pagamento': forms.Select(
+                attrs={
+                    'class': 'form-select'
+                }
+            ),
         }
 
         labels = {
