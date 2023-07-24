@@ -12,11 +12,22 @@ def view_index(request):
 
     # resgatando nome do filme
     codigo_filme = request.GET['codigoFilme']
+    print(codigo_filme)
+    assentos_ocupados= Vendas.objects.all()
+    print('assentos antes if', assentos_ocupados)
+
+    if codigo_filme:
+        if assentos_ocupados:
+            assentos_ocupados=assentos_ocupados.get(filme__icontains =codigo_filme)
+            print('assentos ', assentos_ocupados)
+
+    # print(assentos_ocupados.filme)
 
     context = {
         'fileiras' : array_fileiras,
         'quant_cadeiras' : range(1, cadeiras_por_fileira),
         'codigo_filme' : codigo_filme,
+        'ocupados' : assentos_ocupados
     } 
 
     return render(request, "assentos_app/paginas/index.html", context)
