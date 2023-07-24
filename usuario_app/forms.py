@@ -76,7 +76,7 @@ class CadastroForms(forms.Form):
             nome = nome.strip()
 
             if ' ' in nome:
-                raise forms.ValidationError('espaços n são permitidos')
+                raise forms.ValidationError('espaços não são permitidos')
             else:
                 return nome
 
@@ -97,17 +97,18 @@ class ImagemUsuarioForm(forms.ModelForm):
         exclude=['']
         
         widgets = {
-            'nome': forms.TextInput(attrs={'placeholder': 'Ex.: Tom Cruise'}),
-            'categoria': forms.TextInput(attrs={'placeholder': 'Ex.: Categoria'}),
+            #'nome': forms.TextInput(attrs={'placeholder': 'Ex.: Tom Cruise'}),
+            #'categoria': forms.TextInput(attrs={'placeholder': 'Ex.: Categoria'}),
             'foto': forms.FileInput(attrs={'class': 'file-input', 'title': 'Escolha a imagem', 'data-filename-placement': 'outside'}),
-            'usuario': forms.Select(),
+            #dar uma olhada..
+            #'usuario': forms.Select(),
         }
         
         labels = {
-            'nome': 'Nome Completo',
-            'categoria': 'Categoria',
+            #'nome': 'Nome Completo',
+            #'categoria': 'Categoria',
             'foto': 'Imagem',
-            'usuario': 'Usuario',
+            #'usuario': 'Usuario',
         }
 
 

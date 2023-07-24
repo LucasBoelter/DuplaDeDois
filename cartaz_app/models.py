@@ -2,7 +2,7 @@ from django.db import models
 from datetime import datetime
 
 class Cartaz(models.Model):
-    titulo = models.CharField(max_length=100)
+    titulo = models.CharField(max_length=100, blank = False)
     subtitulo = models.CharField(max_length=100, null=True)
     horario1 = models.TimeField(auto_now=False, null=True)
     horario2 = models.TimeField(auto_now=False, null=True)

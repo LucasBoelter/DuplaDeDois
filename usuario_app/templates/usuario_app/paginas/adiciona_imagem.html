@@ -1,14 +1,20 @@
-
-
-<form action =" {% url 'usuario_app:adicionar_imagem' %} " method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {% for campo in formulario.visible_fields %}
+{% extends 'global/paginas/base_index.html' %}
+{% block titulo_aba %}Foto Perfil{% endblock titulo_aba %}
+{% block conteudo %}
+<div class='caixa_user'>
+    
+    <form action =" {% url 'usuario_app:adicionar_imagem' %} " method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for campo in formulario.visible_fields %}
     <div>
-        <label for="{{ campo.id_for_label }}"><b>{{ campo.label }}</b></label>
+        <label class="form-label" for="{{ campo.id_for_label }}" ><p class='nome_campo'>{{ campo.label }}</p></label>
         {{ campo }}
     </div>
     {% endfor %}
     <div>
         <button type="submit">Salvar Imagem</button>
     </div>
-</form>
+    </form>
+</div>
+
+{% endblock conteudo %}

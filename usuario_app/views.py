@@ -30,7 +30,7 @@ def view_login(request):
 
             if usuario is not None:
                 auth.login(request, usuario)
-                messages.success(request, f'usuario {nome} logado com sucesso!')
+                messages.success(request, f'Olá {nome}')
                 return redirect ('home_app:index')
             else:
                 messages.error(request, 'erro ao tentar logar!')
@@ -79,6 +79,9 @@ def view_add_imagem(request):
     formulario = ImagemUsuarioForm()
     if request.method == 'POST':
         formulario = ImagemUsuarioForm(request.POST, request.FILES)
+        print(formulario)
+        print(formulario.errors)
+        print(formulario.is_valid())
         if formulario.is_valid():
             formulario.save()
             messages.success(request, 'Nova imagem cadastrada!')
