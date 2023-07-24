@@ -6,22 +6,30 @@
 <h2 class="titulo_assentos">Escolha o(s) Assento(s)</h2>
 
 <div class="caixa_assentos">
-    {% comment %} {% csrf_token %} {% endcomment %}
-        <table>
-            <tr>
-                <div class="tela">
-                    <p>Tela</p>
-                </div>
-            </tr>
-            {% for fileira in fileiras %}
-                <tr class="linhas">
-                    {%for cadeira in quant_cadeiras %}
+    <table>
+        <tr>
+            <div class="tela">
+                <p>Tela</p>
+            </div>
+        </tr>
+        <p style='color:white'>{{ocupados.assento}} assentos</p>
+        {% for fileira in fileiras %}
+            <tr class="linhas">
+                {%for cadeira in quant_cadeiras %}
+                {{ fileira|add:cadeira }}
+
+                    {% if fileira|add:cadeira == ocupados.assento %}
+                        <td><button id='{{fileira}}{{cadeira}}' value=1 name='btn{{fileira}}{{cadeira}}' class="btn btn-danger assento" disabled>{{fileira}}{{cadeira}}</button></td>
+                    
+                    {% else %}
                         <td><button id='{{fileira}}{{cadeira}}' value=1 name='btn{{fileira}}{{cadeira}}' class="btn btn-danger assento">{{fileira}}{{cadeira}}</button></td>
-                    {% endfor %}
-                </tr>
-            {% endfor %}
-        </table>
-        <br>
+                    {% endif %}
+
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
     <form action="{% url 'assentos_app:pag' %}">
         <input type="hidden" name="lugaresSelecionados[]" id="lugaresSelecionados" value>
         <input type="hidden" id="codigoFilme" name="codigoFilme" value="{{codigo_filme}}">
