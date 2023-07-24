@@ -1,8 +1,9 @@
+{% extends 'global/paginas/base_index.html' %}
+{% block titulo_aba %}Foto Perfil{% endblock titulo_aba %}
+{% block conteudo %}
 {% if imagem %}
 <ul>
     <li>{{ imagem }}</li>
-    <li>{{ imagem.descricao }}</li>
-    <li>{{ imagem.categoria }}</li>
     <li><img width=200px src="{{ imagem.foto.url }}"></li>
 </ul>
 <div>
@@ -11,4 +12,5 @@
 </div>
 {% else %}
 <p>nada foi enviado</p>
-{% endif %%}
+{% endif %}
+{% endblock conteudo %}

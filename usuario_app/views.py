@@ -12,6 +12,16 @@ def view_index(request):
     
     return render(request, "home_app/paginas/index.html", context={})
 
+#que seria a parte de imagem do sor
+def view_perfil(request):
+    #verificando se o usuario está logado, pra mostrar os dados...
+    if not request.user.is_authenticated:
+        messages.error(request, 'usuario não logado no perfil')
+        return redirect ('usuario_app:login')
+    
+    imagem = ImagemUsuario.objects.all()
+    return render(request, "usuario_app/paginas/perfil.html", context={'imagens':imagem})
+
 def view_login(request):
     formulario = LoginForms()
 
@@ -85,7 +95,7 @@ def view_add_imagem(request):
         if formulario.is_valid():
             formulario.save()
             messages.success(request, 'Nova imagem cadastrada!')
-            return redirect('cartaz_app:index')
+            return redirect('usuario_app:perfil')
 
     return render (request, 'usuario_app/paginas/adiciona_imagem.html', context={'formulario':formulario})
 

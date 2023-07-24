@@ -101,14 +101,14 @@ class ImagemUsuarioForm(forms.ModelForm):
             #'categoria': forms.TextInput(attrs={'placeholder': 'Ex.: Categoria'}),
             'foto': forms.FileInput(attrs={'class': 'file-input', 'title': 'Escolha a imagem', 'data-filename-placement': 'outside'}),
             #dar uma olhada..
-            #'usuario': forms.Select(),
+            'usuario': forms.Select(),
         }
         
         labels = {
             #'nome': 'Nome Completo',
             #'categoria': 'Categoria',
             'foto': 'Imagem',
-            #'usuario': 'Usuario',
+            'usuario': 'Usuario',
         }
 
 
