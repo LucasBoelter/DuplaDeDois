@@ -25,17 +25,37 @@ def view_index(request):
     ocupados = []
     for item in assentos_ocupados:
         ocupados.append(item.assento)
+
+    # lista assentos livres
     livres = []
     for fila in array_fileiras:
         for coluna in range(1, cadeiras_por_fileira):
             livres.append(fila + str(coluna))
+
+    # lista assentos ultimos
+    assentos_ultimos = []
+    for fila in array_fileiras:
+        for coluna in range(1, cadeiras_por_fileira):
+            if coluna == 6:
+                assentos_ultimos.append(fila + str(coluna))
+
+    # lista assentos ultimos
+    assentos_primeiros = []
+    for fila in array_fileiras:
+        for coluna in range(1, cadeiras_por_fileira):
+            if coluna == 1:
+                assentos_primeiros.append(fila + str(coluna))
+    
+    print(assentos_primeiros)
 
     context = {
         #'fileiras' : array_fileiras,
         #'quant_cadeiras' : range(1, cadeiras_por_fileira),
         'livres': livres,
         'codigo_filme' : codigo_filme,
-        'ocupados' : ocupados
+        'ocupados' : ocupados,
+        'ultimos' : assentos_ultimos,
+        'primeiros' : assentos_primeiros
     } 
     print(context)
 
