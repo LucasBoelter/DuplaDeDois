@@ -1,4 +1,5 @@
 {% for item in filmes %}
+{% if item.em_cartaz %}
 <div class='caixa_cartaz'>
     <div class="row">
         <div class="col-sm-4"><img src="{{item.imagem.url}}" alt="" class='img'></div>
@@ -31,4 +32,5 @@
         </div>
     </div>
 </div>
+{% endif %}
 {% endfor %}

@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 
 class ImagemUsuario(models.Model):
     OPCOES_CATEGORIA = [ 
-       ('PESSOA', 'pessoa'),
-        ('PESSOADEFICIENTE', 'pessoaDeficiente'),
+       ('NORMAL', 'Normal'),
+        ('ESTUDANTE', 'Estudante'),
     ]
     categoria = models.CharField(max_length=100, choices=OPCOES_CATEGORIA, default='', null=True)
     # nome = models.CharField(max_length=100, null=False)

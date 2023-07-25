@@ -59,7 +59,8 @@
     font-size: 2vw;
     margin-right: 3px;
 }
-.editar label{
+
+.editar label {
     color: #ffffff;
     font-size: 5vw;
     margin-right: 3px;
@@ -83,7 +84,8 @@
     background-color: #ffffff28;
     padding: 5% 0;
 }
-.sinopse{
+
+.sinopse {
     margin: 2% 7% 0 10%
 }
 
@@ -136,9 +138,10 @@
     font-size: 2vw;
 }
 
-td:nth-child(2) > button {
+td:nth-child(2)>button {
     margin-right: 50px;
 }
+
 /* fim assentos */
 
 /* pagamento */
@@ -153,12 +156,17 @@ td:nth-child(2) > button {
     color: white;
 }
 
-.caixa_pag p{
+.caixa_pag p {
     font-size: 1.5vw;
 }
 
-.info{
+.info {
     color: rgba(172, 0, 0, 0.747);
-    font-weight:bold;
+    font-weight: bold;
     font-size: 1.7vw;
+}
+
+button a {
+    text-decoration: none;
+    color: white
 }
