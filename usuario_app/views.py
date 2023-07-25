@@ -136,7 +136,7 @@ def view_edt_imagem(request, id_url):
 
     if request.method == 'POST':
         if 'delete_image' in request.POST:
-            return view_apaga_imagem(request, id_url)
+            return view_deletar_imagem(request, id_url)
 
         formulario = ImagemUsuarioForm(request.POST, request.FILES, instance=imagem)
         if formulario.is_valid():
@@ -158,5 +158,7 @@ def view_deletar_imagem(request, id_url):
         messages.success(request, 'Imagem deletada')
     except ImagemUsuario.DoesNotExist:
         messages.error(request, 'Imagem não encontrada!')
+
+    #return render (request, 'usuario_app/paginas/apaga_imagem.html', {'id_url':id_url})
 
     return redirect('home_app:index')
