@@ -94,22 +94,21 @@ class ImagemUsuarioForm(forms.ModelForm):
     class Meta:
         model = ImagemUsuario
         #coloquei qualquer coisa pra ele funcionar
-        exclude=['']
+        exclude=['usuario']
         
         widgets = {
-            # 'nome': forms.TextInput(
-            #     attrs={
-            #         'placeholder': 'Ex.: Tom Cruise'
-            #         }
-            # ),
             'categoria': forms.Select(
                 attrs={
-                    'placeholder': '-- categoria --'
+                    'placeholder': '-- categoria --',
                     }
                     ),
             'foto': forms.FileInput(attrs={'class': 'file-input', 'title': 'Escolha a imagem', 'data-filename-placement': 'outside'}),
             #dar uma olhada..
-            'usuario': forms.Select()
+            'usuario': forms.Select(
+                attrs={
+                    'id':'id_usuario'
+                }
+            )
         }
         
         labels = {

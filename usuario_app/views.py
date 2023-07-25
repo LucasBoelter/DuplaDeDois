@@ -141,6 +141,9 @@ def view_edt_imagem(request, id_url):
             return view_deletar_imagem(request, id_url)
 
         formulario = ImagemUsuarioForm(request.POST, request.FILES, instance=imagem)
+        usuario = request.POST.get('categoria')
+        print(usuario)
+
         if formulario.is_valid():
             formulario.save()
             messages.success(request, 'Imagem alterada')

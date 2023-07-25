@@ -39,7 +39,7 @@ def view_index(request):
             if coluna == 6:
                 assentos_ultimos.append(fila + str(coluna))
 
-    # lista assentos ultimos
+    # lista assentos primeiros
     assentos_primeiros = []
     for fila in array_fileiras:
         for coluna in range(1, cadeiras_por_fileira):
@@ -49,8 +49,6 @@ def view_index(request):
     print(assentos_primeiros)
 
     context = {
-        #'fileiras' : array_fileiras,
-        #'quant_cadeiras' : range(1, cadeiras_por_fileira),
         'livres': livres,
         'codigo_filme' : codigo_filme,
         'ocupados' : ocupados,

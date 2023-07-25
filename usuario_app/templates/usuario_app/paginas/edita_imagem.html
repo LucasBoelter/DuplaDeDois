@@ -7,15 +7,18 @@
     <form action="{% url 'usuario_app:editar_imagem' id_url %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {% for campo in formulario.visible_fields %}
+    {% if not campo.is_hidden %}
         <div style='color:white; margin:2%'>
             <label class='editar' for="{{ campo.id_for_label }}"><b>{{ campo.label }}</b></label>
+            <br>
+            {% endif %} 
             {{ campo }}
             <br>
             <br>
         </div>
         {% endfor %}
         <div>
-            <button clas='btn btn-danger' type="submit">Editar imagem</button>
+            <button class='btn btn-danger' type="submit">Editar imagem</button>
         </div>
     </form>
 </div>
