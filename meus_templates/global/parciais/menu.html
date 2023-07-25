@@ -3,11 +3,36 @@
     <a href="{% url 'home_app:index' %}" style='margin: 1.5% 2% 1.2% 1.2%;'><img class='logo'
             src="{% static 'global/img/logo.png' %}" alt=""></a>
     <a class='itens' href="{% url 'cartaz_app:index' %}">Em Cartaz</a>
+
+    {% if user.is_authenticated %}
+    <a class='itens' href="{% url 'usuario_app:perfil' %}" style='border-radius: 50%; margin: 0.2% 1.2% 1.2%;'>
+        {% if foto %}
+        <img class='user' src="{{ foto.url }}" alt="Avatar" style="width: 50px">
+        {% else %}
+        <img class='user' src="{% static 'global/img/user.png' %}" alt="Avatar" style="width: 50px">
+        {% endif %}
+    </a>
+
+    {% else %}
     <a class='itens' href="{% url 'usuario_app:login' %}">Login</a>
     <a class='itens' href="{% url 'usuario_app:cadastro' %}">Cadastro</a>
-    <a class='itens' href="{% url 'admin:index' %}">Administração</a>
-    <a class='itens' href="{% url 'usuario_app:logout' %}">Sair</a>
+    {% endif %}
 
+    <!-- mensagem -->
+    {% if messages %}
+
+    {% for message in messages %}
+    <p class='itens' {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
+    {% endfor %}
+
+    {% endif %}
+
+    {% if user.is_authenticated %}
+    <a class='itens' href="{% url 'usuario_app:logout' %}">Sair</a>
+    {% endif %}
+
+
+    <!-- busca -->
     <form action="{% url 'cartaz_app:busca' %}">
 
         <div style='width: 20vw; height: 2vw; margin-top: 15px;' class="input-group">
@@ -23,23 +48,5 @@
             </button>
         </div>
     </form>
-    {% if user.is_authenticated %}
-        <a class='itens' href="{% url 'usuario_app:perfil' %}" style='border-radius: 50%; margin: 0.2% 1.2% 1.2%;'>
-            {% if user.profile_image %}
-                <img class='user' src="{{ user.profile_image.url }}" alt="Avatar" style="width: 50px">
-            {% else %}
-                <img class='user' src="{% static 'global/img/user.png' %}" alt="Avatar" style="width: 50px">
-            {% endif %}
-        </a>
-    {% endif %}
-   
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
-    
+    <a class='itens' href="{% url 'admin:index' %}">Administração</a>
 </header>
