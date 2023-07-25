@@ -12,12 +12,32 @@ def view_index(request):
 
     # resgatando nome do filme
     codigo_filme = request.GET['codigoFilme']
+    print(codigo_filme)
+    assentos_ocupados= Vendas.objects.all()
+    print('assentos antes if', assentos_ocupados)
+
+    if codigo_filme:
+        if assentos_ocupados:
+            assentos_ocupados=assentos_ocupados.filter(filme__icontains =codigo_filme)
+            print('assentos ', assentos_ocupados)
+
+    # adicionando no python o filtro do que esta ocupado
+    ocupados = []
+    for item in assentos_ocupados:
+        ocupados.append(item.assento)
+    livres = []
+    for fila in array_fileiras:
+        for coluna in range(1, cadeiras_por_fileira):
+            livres.append(fila + str(coluna))
 
     context = {
-        'fileiras' : array_fileiras,
-        'quant_cadeiras' : range(1, cadeiras_por_fileira),
+        #'fileiras' : array_fileiras,
+        #'quant_cadeiras' : range(1, cadeiras_por_fileira),
+        'livres': livres,
         'codigo_filme' : codigo_filme,
+        'ocupados' : ocupados
     } 
+    print(context)
 
     return render(request, "assentos_app/paginas/index.html", context)
 
