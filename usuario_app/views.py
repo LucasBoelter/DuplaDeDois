@@ -18,8 +18,11 @@ def view_perfil(request):
     if not request.user.is_authenticated:
         messages.error(request, 'usuario não logado no perfil')
         return redirect ('usuario_app:login')
-    
-    imagem = ImagemUsuario.objects.all()
+    else:
+        usuario = User.username
+        imagem = ImagemUsuario.objects.all()
+        print(usuario)
+
     return render(request, "usuario_app/paginas/perfil.html", context={'imagens':imagem})
 
 def view_login(request):
