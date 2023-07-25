@@ -97,18 +97,26 @@ class ImagemUsuarioForm(forms.ModelForm):
         exclude=['']
         
         widgets = {
-            #'nome': forms.TextInput(attrs={'placeholder': 'Ex.: Tom Cruise'}),
-            #'categoria': forms.TextInput(attrs={'placeholder': 'Ex.: Categoria'}),
+            # 'nome': forms.TextInput(
+            #     attrs={
+            #         'placeholder': 'Ex.: Tom Cruise'
+            #         }
+            # ),
+            'categoria': forms.Select(
+                attrs={
+                    'placeholder': '-- categoria --'
+                    }
+                    ),
             'foto': forms.FileInput(attrs={'class': 'file-input', 'title': 'Escolha a imagem', 'data-filename-placement': 'outside'}),
             #dar uma olhada..
-            'usuario': forms.Select(),
+            'usuario': forms.Select()
         }
         
         labels = {
-            #'nome': 'Nome Completo',
-            #'categoria': 'Categoria',
+            'nome': 'Nome Completo',
+            'categoria': 'Categoria',
             'foto': 'Imagem',
-            'usuario': 'Usuario',
+            'usuario': 'Usuario'
         }
 
 
