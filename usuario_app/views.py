@@ -129,12 +129,15 @@ def view_edt_imagem(request, id_url):
     imagem = ImagemUsuario.objects.filter(id=id_url)
     if not imagem:
         messages.error(request, 'Imagem não encontrada!')
-        return ('home_app:index')
+        return redirect('home_app:index')
 
     imagem = imagem[0]
     formulario = ImagemUsuarioForm(instance=imagem)
 
     if request.method == 'POST':
+        if 'delete_image' in request.POST:
+            return view_apaga_imagem(request, id_url)
+
         formulario = ImagemUsuarioForm(request.POST, request.FILES, instance=imagem)
         if formulario.is_valid():
             formulario.save()
@@ -143,18 +146,17 @@ def view_edt_imagem(request, id_url):
 
     return render (request, 'usuario_app/paginas/edita_imagem.html', context={'formulario':formulario, 'id_url':id_url})
 
-def view_apg_imagem(request, id_url):
+
+def view_deletar_imagem(request, id_url):
     if not request.user.is_authenticated:
-        messages.error(request, 'usuário não logado no usuario_app/editar')
+        messages.error(request, 'Usuário não logado no usuario_app/editar')
         return redirect('usuario_app:login')
 
-    imagem = ImagemUsuario.objects.filter(id=id_url)
-    if not imagem:
+    try:
+        imagem = ImagemUsuario.objects.get(id=id_url)
+        imagem.delete()
+        messages.success(request, 'Imagem deletada')
+    except ImagemUsuario.DoesNotExist:
         messages.error(request, 'Imagem não encontrada!')
-        return ('home_app:index')
 
-    imagem = imagem[0]
-    imagem.delete()
-    messages.success(request, 'Imagem apagada com sucesso.')
-
-    return render (request, 'usuario_app/paginas/apaga_imagem.html' )
+    return redirect('home_app:index')
