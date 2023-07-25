@@ -12,34 +12,21 @@
                 <p>Tela</p>
             </div>
         </tr>
-        <p style='color:white'>{{ocupados.assento}} assentos</p>
-        {% comment %}
-        {% for fileira in fileiras %}
-            <tr class="linhas">
-                {%for cadeira in quant_cadeiras %}
-                {{ fileira|add:cadeira }}
 
-                    {% if fileira|add:cadeira in ocupados.assento %}
-                        <td><button id='{{fileira}}{{cadeira}}' value=1 name='btn{{fileira}}{{cadeira}}' class="btn btn-danger assento" disabled>{{fileira}}{{cadeira}}</button></td>
-                    
-                    {% else %}
-                        <td><button id='{{fileira}}{{cadeira}}' value=1 name='btn{{fileira}}{{cadeira}}' class="btn btn-danger assento">{{fileira}}{{cadeira}}</button></td>
-                    {% endif %}
-
-                {% endfor %}
-            </tr>
-        {% endfor %}
-          
-        {% endcomment %}
         {% for assento_livre in livres %}
+        {% if assento_livre in primeiros %}
         <tr class="linhas">
-          {% if assento_livre in ocupados %}
-          <td><button id='{{assento_livre}}' value=1 name='btn{{assento_livre}}' class="btn btn-danger assento" disabled>{{assento_livre}}</button></td>
-          {% else %}
-          <td><button id='{{assento_livre}}' value=1 name='btn{{assento_livre}}' class="btn btn-danger assento">{{assento_livre}}</button></td>
-          {% endif %}
+        {% endif %}
+            {% if assento_livre in ocupados %}
+            <td><button id='{{assento_livre}}' value=1 name='btn{{assento_livre}}' class="btn btn-danger assento" disabled>{{assento_livre}}</button></td>
+            {% else %}
+            <td><button id='{{assento_livre}}' value=1 name='btn{{assento_livre}}' class="btn btn-danger assento">{{assento_livre}}</button></td>
+            {% endif %}
+        {% if assento_livre in ultimos %}
         </tr>
+        {% endif %}
         {% endfor %}
+
     </table>
     <br>
     <form action="{% url 'assentos_app:pag' %}">
