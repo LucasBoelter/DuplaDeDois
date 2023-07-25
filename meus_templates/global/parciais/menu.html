@@ -7,7 +7,6 @@
     <a class='itens' href="{% url 'usuario_app:cadastro' %}">Cadastro</a>
     <a class='itens' href="{% url 'admin:index' %}">Administração</a>
     <a class='itens' href="{% url 'usuario_app:logout' %}">Sair</a>
-    <a class='itens' href="{% url 'usuario_app:perfil' %}"><img src="img_avatar.png" alt="Avatar"></a>
 
     <form action="{% url 'cartaz_app:busca' %}">
 
@@ -24,4 +23,23 @@
             </button>
         </div>
     </form>
+    {% if user.is_authenticated %}
+        <a class='itens' href="{% url 'usuario_app:perfil' %}" style='border-radius: 50%; margin: 0.2% 1.2% 1.2%;'>
+            {% if user.profile_image %}
+                <img class='user' src="{{ user.profile_image.url }}" alt="Avatar" style="width: 50px">
+            {% else %}
+                <img class='user' src="{% static 'global/img/user.png' %}" alt="Avatar" style="width: 50px">
+            {% endif %}
+        </a>
+    {% endif %}
+   
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    
 </header>

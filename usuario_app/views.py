@@ -4,6 +4,7 @@ from django.contrib import auth, messages
 from usuario_app.forms import LoginForms , CadastroForms
 from usuario_app.models import ImagemUsuario
 from usuario_app.forms import ImagemUsuarioForm
+from django.contrib.auth.decorators import login_required
 
 def view_index(request):
     if not request.user.is_authenticated:
@@ -72,7 +73,7 @@ def view_login(request):
 
 def logout(request):
     auth.logout(request)
-    messages.success(request, 'Logout efetuado com sucesso!!')
+    messages.success(request, 'Até mais!!')
     return redirect('usuario_app:login')
 
 def view_cadastro(request):
@@ -121,6 +122,7 @@ def view_add_imagem(request):
 
     return render (request, 'usuario_app/paginas/adiciona_imagem.html', context={'formulario':formulario})
 
+
 def view_edt_imagem(request, id_url):
     if not request.user.is_authenticated:
         messages.error(request, 'usuário não logado no usuario_app/editar')
@@ -162,3 +164,9 @@ def view_deletar_imagem(request, id_url):
     #return render (request, 'usuario_app/paginas/apaga_imagem.html', {'id_url':id_url})
 
     return redirect('home_app:index')
+
+
+@login_required
+def menu(request):
+    # Resto do código do menu, caso haja algo específico a ser feito
+    return render(request, 'menu.html', context={'user': request.user})
