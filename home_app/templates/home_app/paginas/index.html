@@ -19,8 +19,12 @@
 
     <!-- Aqui vai ter um for quando pronto bd -->
     {% for item in imagens %}
+    {% if item.titulo == 'Missão: Impossível' %}
     <div class="carousel-item active">
-      <img src="{{item.imagem.url}}" alt="missao" class="d-block" style="width:100%">
+    {% else %}
+    <div class="carousel-item">
+    {% endif %}
+      <img src="{{item.imagem.url}}" alt="" class="d-block" style="width:100%">
       <div class="carousel-caption">
         <h3>{{item.titulo}}</h3>
         <p>{{item.subtitulo}}</p>
@@ -28,7 +32,7 @@
     </div>
     {% endfor %}
     <!-- fim laço for -->
-    </div>
+  </div>
     
     <!-- Left and right controls/icons -->
     <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">

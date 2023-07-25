@@ -7,7 +7,7 @@ from assentos_app.forms import VendasForm
 
 def view_index(request):
     # para completar for dos botões de assentos
-    array_fileiras = ['A', 'B', 'C', 'D']
+    array_fileiras = ['A', 'B', 'C', 'D','E']
     cadeiras_por_fileira = 7
 
     # resgatando nome do filme
