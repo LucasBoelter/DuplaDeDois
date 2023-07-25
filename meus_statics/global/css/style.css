@@ -54,6 +54,17 @@
     margin-right: 3px;
 }
 
+.editar {
+    color: #ffffff;
+    font-size: 2vw;
+    margin-right: 3px;
+}
+.editar label{
+    color: #ffffff;
+    font-size: 5vw;
+    margin-right: 3px;
+}
+
 /* fim user */
 
 /* cartaz */

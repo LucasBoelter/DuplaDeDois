@@ -1,19 +1,19 @@
 {% extends 'global/paginas/base_index.html' %}
-{% block titulo_aba %}Foto Perfil{% endblock titulo_aba %}
+{% block titulo_aba %}Adicionar Foto{% endblock titulo_aba %}
 {% block conteudo %}
 <div class='caixa_user'>
     
     <form action =" {% url 'usuario_app:adicionar_imagem' %} " method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {% for campo in formulario.visible_fields %}
-    <div>
-        <label class="form-label" for="{{ campo.id_for_label }}" ><p class='nome_campo'>{{ campo.label }}</p></label>
-        {{ campo }}
-    </div>
-    {% endfor %}
-    <div>
-        <button type="submit">Salvar Imagem</button>
-    </div>
+        <div style='color:white; margin:2%'>
+            <label class="editar" for="{{ campo.id_for_label }}" ><p class='nome_campo'>{{ campo.label }}</p></label>
+            {{ campo }}
+        </div>
+        {% endfor %}
+        <div>
+            <button class='btn btn-danger' type="submit">Salvar Imagem</button>
+        </div>
     </form>
 </div>
 

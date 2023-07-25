@@ -18,12 +18,31 @@ def view_perfil(request):
     if not request.user.is_authenticated:
         messages.error(request, 'usuario não logado no perfil')
         return redirect ('usuario_app:login')
-    else:
-        usuario = User.username
-        imagem = ImagemUsuario.objects.all()
-        print(usuario)
 
-    return render(request, "usuario_app/paginas/perfil.html", context={'imagens':imagem})
+    else:
+        # coletando user
+        usuario = request.user
+
+        # coletando img
+        imagem = ImagemUsuario.objects.all()
+        for item in imagem:
+            if item.usuario == usuario:
+                foto=item.foto
+                id=item.id
+
+                context={
+                    'user':usuario,
+                    'foto':foto,
+                    'id':id
+                    }
+
+            else:
+                context={
+                    'user':usuario,
+                    'foto':'',
+                    'id':''
+                    }
+    return render(request, "usuario_app/paginas/perfil.html", context)
 
 def view_login(request):
     formulario = LoginForms()
@@ -109,9 +128,9 @@ def view_edt_imagem(request, id_url):
     
     imagem = ImagemUsuario.objects.filter(id=id_url)
     if not imagem:
-        messages.error(request, 'imagem não encontrada!')
+        messages.error(request, 'Imagem não encontrada!')
         return ('home_app:index')
-    
+
     imagem = imagem[0]
     formulario = ImagemUsuarioForm(instance=imagem)
 
@@ -121,10 +140,18 @@ def view_edt_imagem(request, id_url):
             formulario.save()
             messages.success(request, 'Imagem alterada')
             return redirect ('home_app:index')
+
     return render (request, 'usuario_app/paginas/edita_imagem.html', context={'formulario':formulario, 'id_url':id_url})
 
 def view_apg_imagem(request, id_url):
+    if not request.user.is_authenticated:
+        messages.error(request, 'usuário não logado no usuario_app/editar')
+        return redirect('usuario_app:login')
+
     imagem = ImagemUsuario.objects.filter(id=id_url)
+    if not imagem:
+        messages.error(request, 'Imagem não encontrada!')
+        return ('home_app:index')
 
     imagem = imagem[0]
     imagem.delete()

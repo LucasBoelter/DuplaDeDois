@@ -1,12 +1,23 @@
-<form action="% url 'usuario_app:editar_imagem' id_url %" method="POST" enctype="multipart/form-data">
+{% extends 'global/paginas/base_index.html' %}
+{% block titulo_aba %}Editar Foto{% endblock titulo_aba %}
+
+{% block conteudo %}
+<div class='caixa_user'>
+
+    <form action="{% url 'usuario_app:editar_imagem' id_url %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {% for campo in formulario.visible_fields %}
-    <div>
-        <label for="{{ campo.id_for_label }}"><b>{{ campo.label }}</b></label>
-        {{ campo }}
-    </div>
-    {% endfor %}
-    <div>
-        <button type="submit">Editar imagem</button>
-    </div>
-</form>
+        <div style='color:white; margin:2%'>
+            <label class='editar' for="{{ campo.id_for_label }}"><b>{{ campo.label }}</b></label>
+            {{ campo }}
+            <br>
+            <br>
+        </div>
+        {% endfor %}
+        <div>
+            <button clas='btn btn-danger' type="submit">Editar imagem</button>
+        </div>
+    </form>
+</div>
+
+{% endblock conteudo %}
