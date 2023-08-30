@@ -1,2 +1,4 @@
 # DuplaDeDois
-trabalho de conclusão para o curso de python - senac rs
+Trabalho de conclusão do curso de Python - Senac Tech RS
+
+
